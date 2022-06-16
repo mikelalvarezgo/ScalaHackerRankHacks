@@ -2,13 +2,12 @@ name := "HackerRankHacks"
 
 version := "1.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.13.7"
 
 
 libraryDependencies ++= {
 
-  val sprayVersion = "1.2.2"
   Seq(
-    "org.scalatest" %% "scalatest" % "2.2.6"
+    "org.scalatest" %% "scalatest" % "3.2.10"
   )
 }

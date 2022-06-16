@@ -7,14 +7,12 @@ import scala.annotation.tailrec
   */
 object RecursionExercises {
 
-
   /*
   StringReduces ----> https://www.hackerrank.com/challenges/string-reductions/problem
    */
 
   def stringReduces(string: String): String =
     string.foldLeft("")((a: String, b: Char) => if (a.contains(b)) a else (a + b))
-
 
   /*
   String comprenssion -----> https://www.hackerrank.com/challenges/string-compression/problem
@@ -33,10 +31,8 @@ object RecursionExercises {
           recCompression(1, tail.tail, newAccString)
         }
     }
-    recCompression(1,string,"")
+    recCompression(1, string, "")
   }
-
-
 
   /*
   Filter elements : https://www.hackerrank.com/challenges/filter-elements/problem
@@ -46,17 +42,18 @@ object RecursionExercises {
   If there are multiple elements in A which are repeated at least K times, then print these elements ordered by their first occurrence in the list.
    */
 
-  def filterOnly[A](l:List[A], k:Int) = {
+  def filterOnly[A](l: List[A], k: Int) = {
     @tailrec
-    def recFilterOnly(l:List[A], k:Int, filtered: List[A]):List[A] = l match {
-      case Nil => filtered
-      case head :: Nil => if (k == 1 && ! filtered.contains(head)) filtered :+ head else filtered
+    def recFilterOnly(l: List[A], k: Int, filtered: List[A]): List[A] = l match {
+      case Nil         => filtered
+      case head :: Nil => if (k == 1 && !filtered.contains(head)) filtered :+ head else filtered
       case head :: tail =>
-        if ((tail.filter(_ == head).size >= k-1) && (!filtered.contains(head))) recFilterOnly(tail,k, filtered :+ head)
-        else  recFilterOnly(tail,k,filtered)
+        if ((tail.filter(_ == head).size >= k - 1) && (!filtered.contains(head)))
+          recFilterOnly(tail, k, filtered :+ head)
+        else recFilterOnly(tail, k, filtered)
 
     }
-    recFilterOnly(l,k,Nil)
+    recFilterOnly(l, k, Nil)
 
   }
 
@@ -66,11 +63,14 @@ object RecursionExercises {
    */
 
   def superDigit(l: Int, k: Int) = {
-    val extendedInt = (1 to k).toList.foldLeft("")((a,b) => a ++ l.toString)
+    val extendedInt = (1 to k).toList.foldLeft("")((a, b) => a ++ l.toString)
 
-    def recSuperDigitCalc(i:Int):Int = i match  {
-      case d:Int if (d < 10) => d
-      case d:Int => recSuperDigitCalc(d.toString.foldLeft{0}{(a,b) => a + (b.toString.toInt)})
+    def recSuperDigitCalc(i: Int): Int = i match {
+      case d: Int if (d < 10) => d
+      case d: Int =>
+        recSuperDigitCalc(d.toString.foldLeft { 0 } { (a, b) =>
+          a + (b.toString.toInt)
+        })
 
     }
     recSuperDigitCalc(extendedInt.toInt)
