@@ -6,7 +6,7 @@ import RecursionExercises._
 /**
   * Created by mikelalvarezgo on 15/01/2019.
   */
-class RecursionExercicesTest extends FlatSpec with Matchers {
+final class RecursionExercicesTest extends FlatSpec with Matchers {
 
   "String reduces function" should  "return expected result" in {
 
