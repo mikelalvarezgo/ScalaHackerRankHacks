@@ -14,7 +14,7 @@ object Arrays {
   }
 
   def minimumBribes(q: Array[Int]) {
-    val originalPosition = ( to q.length)
+    val originalPosition = ( 1 to q.length)
     val result =
       q
         .zip(originalPosition)
