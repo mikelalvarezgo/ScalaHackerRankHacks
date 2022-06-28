@@ -21,5 +21,15 @@ final class GraphExercisesTest extends AsyncWordSpec with Matchers {
       ) shouldBe 9
     }
   }
+
+  "bfs function" should {
+    "return expected result" in {
+      bfs(6, 4, Array(Array(1,2), Array(1,3), Array(3,4), Array(3,5)),1) shouldBe Array(6,6,12,12, -1)
+
+      bfs(8, 6, Array(Array(2,3), Array(2,4), Array(3,5), Array(3,6), Array(3,7), Array(7,8)),1) shouldBe Array(-1,-1,-1,-1,-1,-1, -1)
+      bfs(8, 6, Array(Array(2,3), Array(2,4), Array(3,5), Array(3,6), Array(3,7), Array(7,8)),2) shouldBe Array(-1,6,6,12,12,12,18)
+
+    }
+  }
 }
 
