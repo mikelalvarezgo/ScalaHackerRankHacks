@@ -3,8 +3,8 @@ package FunctionalProgrammingHacks
 import scala.annotation.tailrec
 
 /**
-  * Created by mikelalvarezgo on 15/01/2019.
-  */
+ * Created by mikelalvarezgo on 15/01/2019.
+ */
 object RecursionExercises {
 
   /*
@@ -31,6 +31,7 @@ object RecursionExercises {
           recCompression(1, tail.tail, newAccString)
         }
     }
+
     recCompression(1, string, "")
   }
 
@@ -45,7 +46,7 @@ object RecursionExercises {
   def filterOnly[A](l: List[A], k: Int) = {
     @tailrec
     def recFilterOnly(l: List[A], k: Int, filtered: List[A]): List[A] = l match {
-      case Nil         => filtered
+      case Nil => filtered
       case head :: Nil => if (k == 1 && !filtered.contains(head)) filtered :+ head else filtered
       case head :: tail =>
         if ((tail.filter(_ == head).size >= k - 1) && (!filtered.contains(head)))
@@ -53,6 +54,7 @@ object RecursionExercises {
         else recFilterOnly(tail, k, filtered)
 
     }
+
     recFilterOnly(l, k, Nil)
 
   }
@@ -68,11 +70,14 @@ object RecursionExercises {
     def recSuperDigitCalc(i: Int): Int = i match {
       case d: Int if (d < 10) => d
       case d: Int =>
-        recSuperDigitCalc(d.toString.foldLeft { 0 } { (a, b) =>
+        recSuperDigitCalc(d.toString.foldLeft {
+          0
+        } { (a, b) =>
           a + (b.toString.toInt)
         })
 
     }
+
     recSuperDigitCalc(extendedInt.toInt)
   }
 

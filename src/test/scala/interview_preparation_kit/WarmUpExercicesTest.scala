@@ -17,10 +17,10 @@ final class WarmUpExercicesTest extends AsyncWordSpec with Matchers {
       jumpingOnClouds(Array(0, 0, 1, 0, 0, 0, 0, 1, 0, 0)) shouldBe 6
     }
   }
-  "Repeated string function" should{
+  "Repeated string function" should {
     "return expeced result" in {
       // scalastyle:off
-      repeatedString("epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq", 549382313570L)  shouldBe 16481469408L
+      repeatedString("epsxyyflvrrrxzvnoenvpegvuonodjoxfwdmcvwctmekpsnamchznsoxaklzjgrqruyzavshfbmuhdwwmpbkwcuomqhiyvuztwvq", 549382313570L) shouldBe 16481469408L
       // scalastyle:on
     }
   }

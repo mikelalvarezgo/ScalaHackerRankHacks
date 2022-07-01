@@ -5,8 +5,8 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AsyncWordSpec
 
 /**
-  * Created by mikelalvarezgo on 15/01/2019.
-  */
+ * Created by mikelalvarezgo on 15/01/2019.
+ */
 final class RecursionExercicesTest extends AsyncWordSpec with Matchers {
 
   "String reduces function" should {

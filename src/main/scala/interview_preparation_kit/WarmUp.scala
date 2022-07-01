@@ -8,8 +8,10 @@ object WarmUp extends App {
     val sortedArray = ar.sortWith(_ < _)
     final case class Acc(previous: Int, count: Int, result: Int) {
       def increment(x: Int): Acc = copy(x, count + 1, result)
+
       def nextNumber(x: Int): Acc = copy(x, 1, result + (count / 2))
-      def getResult = result + (count /2)
+
+      def getResult = result + (count / 2)
     }
     sortedArray.toList
       .foldLeft(Acc(0, 1, 0)) { (acc, x) =>
@@ -23,18 +25,20 @@ object WarmUp extends App {
     // Write your code here
     final case class Acc(result: Int, count: Int) {
       def down: Acc = copy(result, count - 1)
+
       def up: Acc = copy(result, count + 1)
+
       def checkLevel: Acc = {
         if (count == 0) {
           copy(result + 1, count)
-        }else this
+        } else this
       }
     }
     path
       .foldLeft(Acc(0, 0)) { (acc, x) =>
         x match {
           case 'U' => acc.up.checkLevel
-          case 'D'=> acc.down
+          case 'D' => acc.down
         }
       }
       .result
@@ -43,7 +47,7 @@ object WarmUp extends App {
 
   def jumpingOnClouds(c: Array[Int]): Int = {
     // Write your code here
-    final case class Acc(jumps: Int, path: Array[Int]){
+    final case class Acc(jumps: Int, path: Array[Int]) {
       def jump(n: Int): Acc = copy(jumps + 1, path.drop(n))
     }
 
@@ -51,7 +55,7 @@ object WarmUp extends App {
     def step(acc: Acc): Int = {
       acc.path.length match {
         case 0 => acc.jumps
-        case 1  => acc.jumps
+        case 1 => acc.jumps
         case 2 if (acc.path.last == 1) => acc.jumps
         case 2 => acc.jumps + 1
         case _ =>
